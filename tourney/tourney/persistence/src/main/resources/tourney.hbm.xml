@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.shelby.tourney.persistence.domain">
+    <class name="User" table="">
+        <id name="id" column="ID">
+            <generator class="native" />
+        </id>
+        <property name="email" column="EMAIL" length="255" not-null="true" type="string"/>
+        <property name="userId" column="USER_ID" length="50" not-null="true" type="string"/>
+        <property name="password" column="PASSWORD" length="64" not-null="true" type="string"/>
+        <property name="registerTime" column="REGISTER_TIME" not-null="true" type="timestamp"/>
+        <property name="lastLoginTime" column="LAST_LOGIN_TIME" type="timestamp"/>
+    </class>
+</hibernate-mapping>

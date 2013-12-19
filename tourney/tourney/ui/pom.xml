@@ -3,25 +3,21 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.shelby.tourney</groupId>
-	<artifactId>commons</artifactId>
-	<packaging>jar</packaging>
-	<name>commons</name>
+	<artifactId>ui</artifactId>
+	<name>ui</name>
 	<url>http://maven.apache.org</url>
-
+	<packaging>jar</packaging>
+	
 	<parent>
-		<groupId>com.shelby</groupId>
+		<groupId>com.shelby.tourney</groupId>
 		<artifactId>tourney-parent</artifactId>
 		<version>${project.version}</version>
-		<relativePath>../</relativePath>
 	</parent>
-	<dependencies>
-<dependency>
-	<groupId>commons-codec</groupId>
-	<artifactId>commons-codec</artifactId>
-	<version>1.4</version>
-</dependency>
-            
-	</dependencies>
+
+	<properties>
+		<start-class>com.shelby.tourney.ui.Application</start-class>
+	</properties>
+
 
 
 </project>

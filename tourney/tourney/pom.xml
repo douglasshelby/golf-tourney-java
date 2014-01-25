@@ -15,42 +15,100 @@
 
 	<properties>
 		<project.version>0.0.1-SNAPSHOT</project.version>
+	
+		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<hibernate.version>4.3.0.CR2</hibernate.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<!-- Web -->
+		<jsp.version>2.2</jsp.version>
+		<jstl.version>1.2</jstl.version>
+		<servlet.version>2.5</servlet.version>
+		<thymeleaf.version>2.0.19</thymeleaf.version>
+
+		<!-- Spring -->
+		<spring-framework.version>4.0.0.RELEASE</spring-framework.version>
+		<spring.boot.version>0.5.0.M6</spring.boot.version>
+		<spring.mobile.version>1.1.0.RELEASE</spring.mobile.version>
+
+		<!-- Hibernate / JPA -->
+		<hibernate.version>4.2.1.Final</hibernate.version>	
+<!-- 		<hibernate.version>4.3.0.CR2</hibernate.version> -->
+
+		<!-- Database -->
 		<mysql.version>5.1.27</mysql.version>
+		<commons.dbcp.version>1.4</commons.dbcp.version>
+		
+		<!-- Test / Logging -->
+		<junit.version>4.11</junit.version>
+		<log4j.version>1.2.16</log4j.version>
+		<logback.version>1.0.13</logback.version>
+		<slf4j.version>1.7.5</slf4j.version>
+	
 	</properties>
 
 	<dependencies>
+	
+		<!-- Logging with SLF4J & LogBack -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+	    <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-log4j12</artifactId>
+	        <version>${slf4j.version}</version>
+	        <scope>runtime</scope>
+	    </dependency>		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
+		</dependency>	
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<version>${log4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Test Artifacts -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>0.5.0.M6</version>
+			<version>${spring.boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>0.5.0.M6</version>
+			<version>${spring.boot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.mobile</groupId>
 			<artifactId>spring-mobile-device</artifactId>
-			<version>1.1.0.RELEASE</version>
+			<version>${spring.mobile.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring3</artifactId>
-			<version>2.0.19</version>
+			<version>${thymeleaf.version}</version>
 		</dependency>
 	</dependencies>
 

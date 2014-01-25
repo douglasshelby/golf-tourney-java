@@ -2,11 +2,16 @@ package com.shelby.tourney.persistence.domain;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity public class User {
+
+@Entity
+@Table(name="USER")
+public class User {
 
 	public Long getId() {
 		return id;
@@ -45,11 +50,17 @@ import javax.persistence.Id;
 		this.lastLoginTime = lastLoginTime;
 	}
 	
-	@Id @GeneratedValue private Long id;
+	@Id @Column(name="ID") @GeneratedValue
+	private Long id;
+	@Column(name="EMAIL")
 	private String email;
+	@Column(name="USER_ID")
 	private String userId;
+	@Column(name="PASSWORD")
 	private String password;
+	@Column(name="REGISTER_TIME")
 	private Timestamp registerTime;
+	@Column(name="LAST_LOGIN_TIME")
 	private Timestamp lastLoginTime;
 	
 }

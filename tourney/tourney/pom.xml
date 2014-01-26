@@ -26,12 +26,13 @@
 		<jsp.version>2.2</jsp.version>
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>2.5</servlet.version>
-		<thymeleaf.version>2.0.19</thymeleaf.version>
+		<thymeleaf.version>2.1.2.RELEASE</thymeleaf.version>
 
 		<!-- Spring -->
 		<spring-framework.version>4.0.0.RELEASE</spring-framework.version>
-		<spring.boot.version>0.5.0.M6</spring.boot.version>
+		<spring.boot.version>1.0.0.RC1</spring.boot.version>
 		<spring.mobile.version>1.1.0.RELEASE</spring.mobile.version>
+		<spring.webmvc.version>4.0.0.RELEASE</spring.webmvc.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
@@ -98,18 +99,8 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-				<version>${spring.boot.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-security</artifactId>
-				<version>${spring.boot.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.thymeleaf</groupId>
-				<artifactId>thymeleaf-spring3</artifactId>
+				<artifactId>thymeleaf-spring4</artifactId>
 				<version>${thymeleaf.version}</version>
 			</dependency>
 
@@ -189,10 +180,30 @@
 				<version>${spring-framework.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring-framework.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.mobile</groupId>
 				<artifactId>spring-mobile-device</artifactId>
 				<version>${spring.mobile.version}</version>
-			</dependency>			
+			</dependency>	
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.webmvc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-security</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>								
 		</dependencies>
 	</dependencyManagement>
 	<!-- ====================================================================================================================== -->

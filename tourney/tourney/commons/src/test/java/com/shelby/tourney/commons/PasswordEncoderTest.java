@@ -3,17 +3,17 @@ package com.shelby.tourney.commons;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-import org.apache.log4j.Logger;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import org.slf4j.LoggerFactory;
 
 
 public class PasswordEncoderTest 
     extends TestCase
 {
-	private static final Logger log = Logger.getLogger(PasswordEncoderTest.class);
+	private static final org.slf4j.Logger log = LoggerFactory.getLogger(PasswordEncoderTest.class);
     /**
      * Create the test case
      *

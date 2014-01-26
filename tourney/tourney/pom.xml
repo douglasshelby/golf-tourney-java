@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.shelby.tourney</groupId>
 	<artifactId>tourney-parent</artifactId>
-	<version>${project.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -12,14 +13,15 @@
 		<module>commons</module>
 		<module>persistence</module>
 	</modules>
-
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
 	<properties>
 		<project.version>0.0.1-SNAPSHOT</project.version>
-	
 		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		
+
 		<!-- Web -->
 		<jsp.version>2.2</jsp.version>
 		<jstl.version>1.2</jstl.version>
@@ -32,88 +34,190 @@
 		<spring.mobile.version>1.1.0.RELEASE</spring.mobile.version>
 
 		<!-- Hibernate / JPA -->
-		<hibernate.version>4.2.1.Final</hibernate.version>	
-<!-- 		<hibernate.version>4.3.0.CR2</hibernate.version> -->
-
+		<hibernate.version>4.2.1.Final</hibernate.version>
+		<java.transaction>1.1</java.transaction>
 		<!-- Database -->
 		<mysql.version>5.1.27</mysql.version>
 		<commons.dbcp.version>1.4</commons.dbcp.version>
-		
+
 		<!-- Test / Logging -->
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.16</log4j.version>
 		<logback.version>1.0.13</logback.version>
 		<slf4j.version>1.7.5</slf4j.version>
-	
+
 	</properties>
 
-	<dependencies>
-	
-		<!-- Logging with SLF4J & LogBack -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>compile</scope>
-		</dependency>
-	    <dependency>
-	        <groupId>org.slf4j</groupId>
-	        <artifactId>slf4j-log4j12</artifactId>
-	        <version>${slf4j.version}</version>
-	        <scope>runtime</scope>
-	    </dependency>		
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-			<scope>runtime</scope>
-		</dependency>	
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-			<scope>runtime</scope>
-		</dependency>
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- -->
+			<dependency>
+				<groupId>com.shelby.tourney</groupId>
+				<artifactId>commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.shelby.tourney</groupId>
+				<artifactId>persistence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- Logging with SLF4J & LogBack -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<scope>runtime</scope>
+			</dependency>
 
-		<!-- Test Artifacts -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring-framework.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
+			<!-- Test Artifacts -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring-framework.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-security</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.thymeleaf</groupId>
+				<artifactId>thymeleaf-spring3</artifactId>
+				<version>${thymeleaf.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring.boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>${spring.boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.mobile</groupId>
-			<artifactId>spring-mobile-device</artifactId>
-			<version>${spring.mobile.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring3</artifactId>
-			<version>${thymeleaf.version}</version>
-		</dependency>
-	</dependencies>
+			<!-- MySQL database driver -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
 
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>${commons.dbcp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<!-- optional -->
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-osgi</artifactId> -->
+			<!-- <version>${hibernate.version}</version> -->
+			<!-- </dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-envers</artifactId> -->
+			<!-- <version>${hibernate.version}</version> -->
+			<!-- </dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-c3p0</artifactId> -->
+			<!-- <version>${hibernate.version}</version> -->
+			<!-- </dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-proxool</artifactId> -->
+			<!-- <version>${hibernate.version}</version> -->
+			<!-- </dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-infinispan</artifactId> -->
+			<!-- <version>${hibernate.version}</version> -->
+			<!-- </dependency> -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-ehcache</artifactId> -->
+			<!-- <version>${hibernate.version}</version> -->
+			<!-- </dependency> -->
+
+			<dependency>
+				<groupId>javax.transaction</groupId>
+				<artifactId>jta</artifactId>
+				<version>${java.transaction}</version>
+			</dependency>
+			<!-- Spring and Transactions -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring-framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring-framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.mobile</groupId>
+				<artifactId>spring-mobile-device</artifactId>
+				<version>${spring.mobile.version}</version>
+			</dependency>			
+		</dependencies>
+	</dependencyManagement>
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
 	<build>
+		<!-- <finalName>${project.artifactId}.${project.version}</finalName> -->
 		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<excludes>
+						<exclude>*.properties</exclude>
+					</excludes>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>resources/</Class-Path>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
@@ -122,10 +226,38 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../shared/</directory>
+									<filtering>true</filtering>
+								</resource>
+								<resource>
+									<directory>${basedir}/src/main/resources/</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
-
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
 	<repositories>
 		<repository>
 			<id>spring-snapshots</id>
@@ -144,6 +276,9 @@
 			</snapshots>
 		</repository>
 	</repositories>
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-snapshots</id>

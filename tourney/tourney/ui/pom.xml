@@ -6,7 +6,7 @@
 	<name>ui</name>
 	<url>http://maven.apache.org</url>
 	<packaging>jar</packaging>
-	
+
 	<parent>
 		<groupId>com.shelby.tourney</groupId>
 		<artifactId>tourney-parent</artifactId>
@@ -16,35 +16,36 @@
 	<properties>
 		<start-class>com.shelby.tourney.ui.Application</start-class>
 	</properties>
-    <build>
-        <plugins>
-            <plugin> 
-                <artifactId>maven-compiler-plugin</artifactId> 
-                <version>2.3.2</version> 
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.mobile</groupId>
 			<artifactId>spring-mobile-device</artifactId>
 		</dependency>
-		<!-- Test Artifacts -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-test</artifactId> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -68,20 +69,33 @@
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
+		</dependency>
+		<!-- Test Artifacts -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>		
 	</dependencies>
-    <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/libs-snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/libs-snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->
+	<!-- ====================================================================================================================== -->	
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 </project>

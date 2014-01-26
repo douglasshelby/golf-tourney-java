@@ -27,7 +27,6 @@
 		
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
-		p:validationQuery="select 1"
 		p:url="${jdbc.databaseUrl}"
 		p:driverClassName="${jdbc.driverClassName}"	
 		p:username="${jdbc.userName}"
